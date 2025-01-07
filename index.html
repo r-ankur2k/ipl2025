@@ -23,6 +23,36 @@
 
     <section id="home">
     <img src="records.png" alt="records" style="width: 100%; height: auto;">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const img = document.querySelector('#home img');
+            img.addEventListener('click', function() {
+                const popup = document.createElement('div');
+                popup.style.position = 'fixed';
+                popup.style.top = '0';
+                popup.style.left = '0';
+                popup.style.width = '100%';
+                popup.style.height = '100%';
+                popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                popup.style.display = 'flex';
+                popup.style.alignItems = 'center';
+                popup.style.justifyContent = 'center';
+                popup.style.zIndex = '1000';
+
+                const popupImg = document.createElement('img');
+                popupImg.src = img.src;
+                popupImg.style.maxWidth = '90%';
+                popupImg.style.maxHeight = '90%';
+
+                popup.appendChild(popupImg);
+                document.body.appendChild(popup);
+
+                popup.addEventListener('click', function() {
+                    document.body.removeChild(popup);
+                });
+            });
+        });
+    </script>
     </section>
 
     <section id="teams">
